@@ -37,13 +37,11 @@ function markFormInvalid () {
 function validateName () {
     let nameInput = document.querySelector('#name')
     let parentEl = nameInput.parentElement   
-    if (nameInput.value) {
+    if (nameInput.value, isNaN(nameInput.value)) {
         parentEl.classList.remove('input-invalid')
         parentEl.classList.add('input-valid')
-        console.log('it works')
         removeName ()
     } else {
-        console.log('invalid')
         parentEl.classList.remove('input-valid')
         parentEl.classList.add('input-invalid')
         markFormInvalid()
@@ -55,19 +53,19 @@ function validateName () {
 function validateCarYear () {
     let carYear = document.querySelector('#car-year')
     let parentEl1 = carYear.parentElement
-    if (carYear.value) {
+    if (carYear.value, !isNaN(carYear.value), carYear.value >= 1900, carYear.value <= 2020) {
         parentEl1.classList.remove('input-invalid')
         parentEl1.classList.add('input-valid')
-        console.log('it works')
         removeYear ()
     } else {
-        console.log('invalid')
         parentEl1.classList.remove('input-valid')
         parentEl1.classList.add('input-invalid')
         markFormInvalid()
         showInvalidMessageCarYear ()
     }    
 }
+
+//TODO: returns valid box when left empty and another box is filld out
 
 // Car Make Validation 
 function validateCarMake () {
@@ -76,10 +74,8 @@ function validateCarMake () {
     if (carMake.value) {
         parentEl2.classList.remove('input-invalid')
         parentEl2.classList.add('input-valid')
-        console.log('it works')
         removeMake ()
     } else {
-        console.log('invalid')
         parentEl2.classList.remove('input-valid')
         parentEl2.classList.add('input-invalid')
         markFormInvalid()
@@ -94,10 +90,8 @@ function validateCarModel () {
     if (carModel.value) {
         parentEl3.classList.remove('input-invalid')
         parentEl3.classList.add('input-valid')
-        console.log('it works')
         removeModel ()
     } else {
-        console.log('invalid')
         parentEl3.classList.remove('input-valid')
         parentEl3.classList.add('input-invalid')
         markFormInvalid()
@@ -110,37 +104,49 @@ function validateCarModel () {
 function dateParking () {
     let date = document.querySelector('#start-date')
     let parentEl4 = date.parentElement
+    let currentDate = new Date ()
     if (date.value) {
         parentEl4.classList.remove('input-invalid')
         parentEl4.classList.add('input-valid')
-        console.log('it works')
         removeDate ()
     } else {
-        console.log('invalid')
         parentEl4.classList.remove('input-valid')
         parentEl4.classList.add('input-invalid')
         markFormInvalid()
         showInvalidMessageDate ()
     }
 } 
+
+// Is date valid:
+
+// function checkDate () {
+//     let today = new Date ()
+//     date1 = date1.split('/')
+//     date1 = new Date (date1[2], date1[1] -1, date[0])
+//     return (today - date1) < 0
+// }
+
+
+
+
    
 // # of Days Validation
 function numDays () {
     let dayNum = document.querySelector('#days')
     let parentEl5 = dayNum.parentElement
-    if (dayNum.value) {
+    if (dayNum.value, !isNaN(dayNum.value), dayNum.value <= 30) {
         parentEl5.classList.remove('input-invalid')
         parentEl5.classList.add('input-valid')
-        console.log('it works')
         removeDay ()
     } else {
-        console.log('invalid')
         parentEl5.classList.remove('input-valid')
         parentEl5.classList.add('input-invalid')
         markFormInvalid()
         showInvalidMessageDays ()
     }
 }
+
+// TODO: dayNum.value != '' -- play around to solve issue of empty box validating 
 
 // Card # Validation
 function cardNum () {
@@ -149,10 +155,8 @@ function cardNum () {
     if (card.value) {
         parentEl6.classList.remove('input-invalid')
         parentEl6.classList.add('input-valid')
-        console.log('it works')
         removeCard ()
     } else {
-        console.log('invalid')
         parentEl6.classList.remove('input-valid')
         parentEl6.classList.add('input-invalid')
         markFormInvalid()
@@ -164,13 +168,11 @@ function cardNum () {
 function cvv () {
     let cvvNum = document.querySelector('#cvv')
     let parentEl7 = cvvNum.parentElement
-    if (cvvNum.value) {
+    if (cvvNum.value, !isNaN(cvvNum.value), cvvNum.value.length === 3) {
         parentEl7.classList.remove('input-invalid')
         parentEl7.classList.add('input-valid')
-        console.log('it works')
         removeCVV ()
     } else {
-        console.log('invalid')
         parentEl7.classList.remove('input-valid')
         parentEl7.classList.add('input-invalid')
         markFormInvalid()
@@ -185,10 +187,8 @@ function expDate () {
     if (expiration.value) {
         parentEl8.classList.remove('input-invalid')
         parentEl8.classList.add('input-valid')
-        console.log('it works')
         removeMsg ()
     } else {
-        console.log('invalid')
         parentEl8.classList.remove('input-valid')
         parentEl8.classList.add('input-invalid')
         markFormInvalid()
@@ -355,10 +355,17 @@ function removeName () {
 }
 
 
+// Add the following validations:
 
 
 
-// If everything valid, show a message.
+
+// Car year must be after 1900.
+// Car year cannot be in the future.
+// Date parking must be in the future.
+// Number of days must be a number.
+// Number of days must be between 1 and 30.
+// CVV must be a three-digit number.
 
 
 // In hindsight, finding a way to make the function apply to the input-field.

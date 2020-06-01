@@ -53,7 +53,7 @@ function validateName () {
 function validateCarYear () {
     let carYear = document.querySelector('#car-year')
     let parentEl1 = carYear.parentElement
-    if (carYear.value, !isNaN(carYear.value), carYear.value >= 1900, carYear.value <= 2020) {
+    if (carYear.value && !isNaN(carYear.value) && carYear.value >= 1900 && carYear.value <= 2020) {
         parentEl1.classList.remove('input-invalid')
         parentEl1.classList.add('input-valid')
         removeYear ()
@@ -134,7 +134,7 @@ function dateParking () {
 function numDays () {
     let dayNum = document.querySelector('#days')
     let parentEl5 = dayNum.parentElement
-    if (dayNum.value, !isNaN(dayNum.value), dayNum.value <= 30) {
+    if (dayNum.value && !isNaN(dayNum.value) && dayNum.value <= 30) {
         parentEl5.classList.remove('input-invalid')
         parentEl5.classList.add('input-valid')
         removeDay ()
@@ -168,7 +168,7 @@ function cardNum () {
 function cvv () {
     let cvvNum = document.querySelector('#cvv')
     let parentEl7 = cvvNum.parentElement
-    if (cvvNum.value, !isNaN(cvvNum.value), cvvNum.value.length === 3) {
+    if (cvvNum.value && !isNaN(cvvNum.value) && cvvNum.value.length === 3) {
         parentEl7.classList.remove('input-invalid')
         parentEl7.classList.add('input-valid')
         removeCVV ()
